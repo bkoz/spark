@@ -7,5 +7,5 @@ resources:
 patches:
   - target:
       kind: Subscription
-      name: devspaces-operator
+      name: spark-operator
     path: patch-channel.yaml
