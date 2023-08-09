@@ -4,7 +4,6 @@ metadata:
   labels:
     operators.coreos.com/spark-helm-operator.spark-operator: ""
   name: spark-helm-operator
-  namespace: spark-operator
 spec:
   channel: alpha
   installPlanApproval: Automatic
