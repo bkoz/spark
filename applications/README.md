@@ -5,7 +5,8 @@ To deploy a simple PySpark application that computes the value of pi.
 oc apply -f applications/01-pyspark-pi.yaml
 ``` 
 
-The driver pod and a single executor should be running:
+The driver pod and a single executor should be running along with the
+operator and helm-operator.
 ```
 oc get pods
 ```
@@ -32,7 +33,11 @@ To scale out the application, modify the `executor.instances` key and apply the 
     instances: 2
 ```
 
-When the application is submitted, a pod should get scheduled for each instance.
+When the application is submitted, a pod should get scheduled for each executor instance.
+```
+oc apply -f applications/01-pyspark-pi.yaml
+``` 
+
 ```
 NAME                                                      READY   STATUS    RESTARTS   AGE
 pyspark-pi-driver                                         1/1     Running   0          32s
