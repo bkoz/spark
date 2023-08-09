@@ -50,3 +50,5 @@ By using 2 executors the total run time is nearly cut in half as expected.
 23/08/09 19:25:44 INFO DAGScheduler: Job 0 finished: reduce at /opt/spark/examples/src/main/python/pi.py:42, took 51.578457 s
 Pi is roughly 3.145080
 ```
+
+[Spark on k8s api docs](https://github.com/GoogleCloudPlatform/spark-on-k8s-operator/blob/master/docs/api-docs.md)
