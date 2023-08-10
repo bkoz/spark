@@ -1,0 +1,26 @@
+schemaVersion: 2.1.0
+metadata:
+  name: spark
+components:
+  - name: tools
+    container:
+      image: quay.io/devfile/universal-developer-image:ubi8-latest
+      volumeMounts:
+        - name: venv
+          path: /home/user/.venv
+      memoryLimit: 1Gi
+      mountSources: true
+
+  - name: venv
+    volume:
+      size: 1G
+
+commands:
+  - id: run-application
+    exec:
+      label: "Run application"
+      component: tools
+      workingDir: ${PROJECT_SOURCE}
+      commandLine: "python -m venv venv && source venv/bin/activate && pip install pip pyspark==3.3.1 -Uq"
+      group:
+        kind: run
