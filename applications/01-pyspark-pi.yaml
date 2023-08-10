@@ -2,7 +2,7 @@ kind: SparkApplication
 apiVersion: sparkoperator.k8s.io/v1beta2
 metadata:
   name: pyspark-pi
-  namespace: spark-operator
+  namespace: koz-spark-operator
 spec:
   driver:
     coreLimit: 1200m
