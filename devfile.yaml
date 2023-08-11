@@ -21,6 +21,6 @@ commands:
       label: "Run application"
       component: tools
       workingDir: ${PROJECT_SOURCE}
-      commandLine: "python -m venv venv && source venv/bin/activate && pip install pip pyspark==3.3.1 -Uq"
+      commandLine: "python -m venv venv && source venv/bin/activate && pip install pip -Uq && pip install -r applications/src/requirements.txt"
       group:
         kind: run
