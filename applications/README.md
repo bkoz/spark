@@ -1,4 +1,20 @@
-# Pyspark Sample Applications
+# Pyspark 
+
+## Sample Applications
+
+### Run the Pyspark SDK example using Openshift DevSpaces
+
+Run the devfile task to build the python environment:
+
+=> View => Command Pallete => Tasks: Run Task
+=> Just below + Configure a Task => choose the devfile folder icon
+=> devfile: run application
+
+From the file explorer, open the `01-pyspark-pi.py` file and 
+click the `Run` arrow in the upper left.
+
+
+### Deploy a similiar example using a SparkApplication Custom Resource.
 
 To deploy a simple PySpark application that computes the value of pi.
 ```
