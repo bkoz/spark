@@ -47,12 +47,14 @@ sparkConf.set("spark.executor.cores", "1")
 # Initialize the Spark cluster. This will create the executor pods.
 spark = SparkSession.builder.config(conf=sparkConf).getOrCreate()
 sc = spark.sparkContext
+sc.setLogLevel("INFO")
 
 #
 # Create a Spark job that computes Pi using the Monte Carlo method.
 #
 partitions = 7
 n = 10000000 * partitions
+# n = 100000000 * partitions
 
 
 def f(_):
