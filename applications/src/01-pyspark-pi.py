@@ -51,11 +51,11 @@ sc.setLogLevel("INFO")
 
 #
 # Create a Spark job that computes Pi using the Monte Carlo method.
+# Tweak samples to increase precision and run time.
 #
 partitions = 7
-n = 10000000 * partitions
-# n = 100000000 * partitions
-
+samples = 10000000
+n = samples * partitions
 
 def f(_):
     """
