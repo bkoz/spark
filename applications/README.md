@@ -20,13 +20,19 @@ click the `Run` arrow in the upper right to run the program.
 
 => Terminal => New Terminal
 
-I'm still testing this as it currently requires cluster-admin privs.
+This needs to be tested for a non-cluster-admin user.
 
 Create a service account and grant it admin privs for your namespace.
 
 ```
 oc create sa spark-service-account
 oc adm policy add-role-to-user admin -z spark-service-account
+```
+
+- OR
+
+```
+oc apply -f applications/00-spark-role.yaml
 ```
 
 To deploy a simple PySpark application that computes the value of pi.
@@ -43,8 +49,6 @@ oc get pods
 NAME                                                      READY   STATUS    RESTARTS   AGE
 pyspark-pi-driver                                         1/1     Running   0          7s
 pythonpi-3b511789dbab1045-exec-1                          1/1     Running   0          2s
-spark-helm-operator-controller-manager-5b75d4bddb-n8hlq   2/2     Running   0          20m
-spark-operator-5fbb6f7f67-8hg9s                           1/1     Running   0          20m
 ```
 
 The logs of the pyspark driver pod should indicate the job completed.
@@ -78,6 +82,14 @@ By using 2 executors the total run time is nearly cut in half as expected.
 ```
 23/08/09 19:25:44 INFO DAGScheduler: Job 0 finished: reduce at /opt/spark/examples/src/main/python/pi.py:42, took 51.578457 s
 Pi is roughly 3.145080
+```
+
+Submit via `spark-submit`.
+
+Testing this now.
+
+```
+bash applications/02-submit-spark.sh
 ```
 
 [Spark on k8s api docs](https://github.com/GoogleCloudPlatform/spark-on-k8s-operator/blob/master/docs/api-docs.md)
