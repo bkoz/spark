@@ -22,6 +22,13 @@ click the `Run` arrow in the upper right to run the program.
 
 I'm still testing this as it currently requires cluster-admin privs.
 
+Create a service account and grant it admin privs for your namespace.
+
+```
+oc create sa spark-service-account
+oc adm policy add-role-to-user admin -z spark-service-account
+```
+
 To deploy a simple PySpark application that computes the value of pi.
 ```
 oc apply -f applications/01-pyspark-pi.yaml
