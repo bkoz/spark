@@ -8,7 +8,7 @@ components:
       volumeMounts:
         - name: venv
           path: /home/user/.venv
-      memoryLimit: 1Gi
+      memoryLimit: 512Mi
       mountSources: true
 
   - name: venv
