@@ -22,7 +22,7 @@ spec:
     volumeMounts:
       - mountPath: /tmp
         name: test-volume
-  image: 'gcr.io/spark-operator/spark-py:v3.1.1'
+  image: 'docker.io/apache/spark-py'
   imagePullPolicy: Always
   mainApplicationFile: 'local:///opt/spark/examples/src/main/python/pi.py'
   arguments:
